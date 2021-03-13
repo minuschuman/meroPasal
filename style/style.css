@@ -1,0 +1,28 @@
+body {
+    margin:50px 0px; padding:0px;
+    text-align:center;
+    align:center;
+}
+label,input {
+ display: block;
+ width: 150px;
+ float: left;
+ margin-bottom: 10px;
+}
+
+label {
+ text-align: right;
+ width: 75px;
+ padding-right: 20px;
+}
+
+br {
+ clear: left;
+}
+
+#sbm{
+  background-color:#00a;
+  color:white;
+  float:none;
+  width:75px;
+}
