@@ -24,7 +24,7 @@ $result=$conn->query($sql);
 <div id="load"></div>
 <body>
   <div class="nav">
-    <h1>Billing System</h1>
+    <h1>MeroPasal</h1>
     <ul>
       <a href="superDashboard.php">
         <li id="act">Dashboard</li>
@@ -41,7 +41,7 @@ $result=$conn->query($sql);
       <a href="Sales.php">
         <li id="act">Sales</li>
       </a>
-      <li id="out-btn"><a href="#">Log Out</a></li>
+      <a href="ses_clear.php" onclick="return confirm('Are you sure you want to logout?')"><li id="out-btn">Log Out</li></a>
     </ul>
   </div>
   <div class="body">
@@ -50,6 +50,9 @@ $result=$conn->query($sql);
     <div id="Categories">
       <div class="adduser">
         <a href="addcat.php"><button class="add-btn">+ Add New</button></a>
+        <form method="GET" name="catsrch" id="catsrch">
+          <input type="text" name="text" placeholder="Name Only" onkeyup="loadcont(this.value);">
+        </form>
       </div>
       <table border='1' cellpadding='0' cellspacing='0' class="table">
         <thead>
@@ -59,7 +62,7 @@ $result=$conn->query($sql);
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="catbody">
           <?php foreach ($result as $row) {  ?>
           <tr>
             <td><?php echo $row['id']; ?></td>
@@ -81,5 +84,17 @@ $result=$conn->query($sql);
   </div>
   <!--body-->
 </body>
-
 </html>
+<script>
+  function loadcont(){
+    var xhttp = new XMLHttpRequest();
+    var txt = document.catsrch.text.value;
+    xhttp.open("GET","http://localhost/projectbill/catsearcher.php?text=" + txt,true);
+    xhttp.onreadystatechange=function(){
+      if((this.status==200)&&(this.readyState==4)){
+        document.getElementById("catbody").innerHTML=this.responseText;
+      }
+    }
+    xhttp.send();
+  }
+</script>

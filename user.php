@@ -61,7 +61,7 @@ $result=$conn->query($sql);
       <a href="Sales.php">
         <li id="act">Sales</li>
       </a>
-      <a href="ses_clear.php"><li id="out-btn">Log Out</li></a>
+      <a href="ses_clear.php" onclick="return confirm('Are you sure you want to logout?')"><li id="out-btn">Log Out</li></a>
     </ul>
   </div>
   <div class="body">
@@ -82,7 +82,7 @@ $result=$conn->query($sql);
       <table class="table" cellpadding='0' cellspacing='0'>
         <thead>
           <tr>
-            <!--th>Id</th-->
+            <th>Id</th>
             <th>Name</th>
             <th>Username</th>
             <th>Status</th>
@@ -96,7 +96,7 @@ $result=$conn->query($sql);
               foreach ($result as $row) {
               ?>
           <tr>
-            <!--td><?php //echo $row['id']; ?></td-->
+            <td><?php echo $row['id']; ?></td>
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['username']; ?></td>
             <td><?php if ($row['status']==1) {
@@ -132,16 +132,11 @@ $result=$conn->query($sql);
     var xhttp = new XMLHttpRequest();
     var txt = document.usrsrch.text.value;
     xhttp.open("GET","http://localhost/projectbill/usersearcher.php?text=" + txt,true);
-
     xhttp.onreadystatechange=function(){
-      /*alert(this.status);//test 200
-      alert(this.readyState);//expire time*/
-
       if((this.status==200)&&(this.readyState==4)){
         document.getElementById("userbody").innerHTML=this.responseText;
       }
     }
-    xhttp.send();//data requesting to server
-
-  }//200 meaning OK // 100 research//300 redirect//500 server site
+    xhttp.send();
+  }
 </script>

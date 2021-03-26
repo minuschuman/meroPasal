@@ -40,7 +40,7 @@
       <a href="Sales.php" class="activeMenuItem">
         <li id="act">Sales</li>
       </a>
-      <li id="out-btn"><a href="ses_clear.php">Log Out</a></li>
+      <li id="out-btn"><a href="ses_clear.php" onclick="return confirm('Are you sure you want to logout?')">Log Out</a></li>
     </ul>
   </div>
   <div class="body">
@@ -72,7 +72,7 @@
       </div>
       <!--panel-set-->
 
-      <div class="highest-table">
+      <!--div class="highest-table">
         <table class="table" border='1' cellpadding='0' cellspacing='0'>
           <caption>
             <h2>Highest Sold Products</h2>
@@ -80,8 +80,8 @@
           <thead>
             <tr>
               <th>Title</th>
-              <th>Total Sold</th>
-              <th>Total Quantity</th>
+              <th>Total Quntity</th>
+              <th>Total sale</th>
             </tr>
           </thead>
           <tbody>

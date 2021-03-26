@@ -15,7 +15,7 @@
 <div id="load"></div>
 <body>
   <div class="nav">
-    <h1>Billing System</h1>
+    <h1>MeroPasal</h1>
     <ul>
       <a href="superDashboard.php">
         <li id="act">Dashboard</li>

@@ -23,10 +23,10 @@ $result_sales=$conn->query($sql_sales);
 $row_sales=$result_sales->fetch_assoc();
 
 /*****************highest sales****************/
-$sql_N="SELECT p.name, COUNT(s.product_id) AS totalSold, SUM(s.qty) AS totalQty FROM sales s LEFT JOIN products p ON p.id = s.product_id where s.delete_status=0 GROUP BY s.product_id";
+$sql_N="SELECT p.name, COUNT(s.prod_id) AS totalSold, SUM(s.qty) AS totalQty FROM sales s LEFT JOIN products p ON p.id = s.prod_id where s.delete_status=0 GROUP BY s.prod_id";
 $result_N=$conn->query($sql_N);
 /**************************/
-$sql_LS="SELECT s.id,s.qty,s.price,s.date,p.name FROM sales s LEFT JOIN products p ON s.product_id = p.id where s.delete_status=0 GROUP BY s.product_id ORDER BY SUM(s.qty) DESC LIMIT 5 ";
+$sql_LS="SELECT s.id,s.qty,s.price,s.date,p.name FROM sales s right JOIN products p ON p.id = s.prod_id where s.delete_status=0 GROUP BY s.id DESC LIMIT 5 ";
 $result_LS=$conn->query($sql_LS);
 
 /************IF require recently added******************
