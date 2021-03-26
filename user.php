@@ -82,7 +82,7 @@ $result=$conn->query($sql);
       <table class="table" cellpadding='0' cellspacing='0'>
         <thead>
           <tr>
-            <th>Id</th>
+            <!--th>Id</th-->
             <th>Name</th>
             <th>Username</th>
             <th>Status</th>
@@ -96,7 +96,7 @@ $result=$conn->query($sql);
               foreach ($result as $row) {
               ?>
           <tr>
-            <td><?php echo $row['id']; ?></td>
+            <!--td><?php //echo $row['id']; ?></td-->
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['username']; ?></td>
             <td><?php if ($row['status']==1) {
