@@ -12,6 +12,7 @@ $result=$conn->query($sql);
 
 <head>
   <link rel="stylesheet" href="style/superDashboard.css" type="text/css" />
+  <script src="loder.js"></script>
   <style>
 
 
@@ -20,7 +21,7 @@ $result=$conn->query($sql);
   <!--link rel="shortcut icon" href=".ico"-->
   <title>Categories | MeroPasal</title>
 </head>
-
+<div id="load"></div>
 <body>
   <div class="nav">
     <h1>Billing System</h1>

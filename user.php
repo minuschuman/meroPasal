@@ -13,18 +13,38 @@ $result=$conn->query($sql);
 
 <head>
   <link rel="stylesheet" href="style/superDashboard.css" type="text/css" />
+  <script src="loder.js"></script>
   <style>
-
-
-
+    .adduser button{
+      border: transparent;
+      height: 45px;
+      border-radius:12px;
+      float: left;
+      margin-left: 5%;
+    }
+    #usrsrch{
+      display: inline-block;
+      float: right;;
+      margin-right: 5%
+    }
+    #usrsrch input{
+      //border: 1px;
+      height: 45px;
+      border-radius:12px;
+      //background-color: deeppink;
+    }
+    .adduser{
+      //margin-bottom: 1em;
+      //background-color: red;
+    }
   </style>
   <!--link rel="shortcut icon" href=".ico"-->
   <title>Users | MeroPasal</title>
 </head>
-
+<div id="load"></div>
 <body>
   <div class="nav">
-    <h1 id="myName">Mero Pasal</h1>
+    <h1 id="myName">MeroPasal</h1>
     <ul>
       <a href="superDashboard.php">
         <li id="act">Dashboard</li>
@@ -41,17 +61,25 @@ $result=$conn->query($sql);
       <a href="Sales.php">
         <li id="act">Sales</li>
       </a>
-      <li id="out-btn"><a href="ses_clear.php">Log Out</a></li>
+      <a href="ses_clear.php"><li id="out-btn">Log Out</li></a>
     </ul>
   </div>
   <div class="body">
     <h1 id="p-title">Users</h1>
     <hr>
+    <div class="newdi" style="background-color:red;">
+    <div class="adduser">
+      <a href="adduser.php"><button class="add-btn">+ Add New</button></a>
+    </div>
+    <div class="">
+      <form method="GET" name="usrsrch" id="usrsrch">
+        <input type="text" name="text" placeholder="">
+        <input type="button" onclick="loadcont();" value="search">
+      </form>
+    </div>
+    </div>
     <div id="User">
-      <div class="adduser">
-        <a href="adduser.php"><button class="add-btn">+ Add New</button></a>
-      </div>
-      <table class="table" border='1' cellpadding='0' cellspacing='0'>
+      <table class="table" cellpadding='0' cellspacing='0'>
         <thead>
           <tr>
             <th>Id</th>
@@ -94,6 +122,7 @@ $result=$conn->query($sql);
       </table>
     </div>
     <!--User-->
+
   </div>
   <!--body-->
 </body>

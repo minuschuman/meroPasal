@@ -2,6 +2,7 @@ body {
     margin:50px 0px; padding:0px;
     text-align:center;
     align:center;
+    
 }
 label,input {
  display: block;
@@ -21,8 +22,8 @@ br {
 }
 
 #sbm{
-  background-color:#00a;
-  color:white;
+  background-color:#42b72a;
   float:none;
   width:75px;
+  color: #dfe3ee;
 }
