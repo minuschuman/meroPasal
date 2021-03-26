@@ -47,7 +47,7 @@ if(isset($_SESSION['username'])){
 
     .txt{
       //font-style: italic;
-      font-weight: bold;
+      //font-weight: bold;
       color: black;
     }
 
