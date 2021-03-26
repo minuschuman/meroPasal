@@ -71,10 +71,10 @@ $result=$conn->query($sql);
     <div class="adduser">
       <a href="adduser.php"><button class="add-btn">+ Add New</button></a>
     </div>
-    <div class="">
+    <div id="">
       <form method="GET" name="usrsrch" id="usrsrch">
-        <input type="text" name="text" placeholder="">
-        <input type="button" onclick="loadcont();" value="search">
+        <input type="text" name="text" placeholder="Name Only" onkeyup="loadcont(this.value);">
+        <!--input type="button" onclick="loadcont();" value="search"-->
       </form>
     </div>
     </div>
@@ -90,7 +90,7 @@ $result=$conn->query($sql);
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="userbody">
           <?php
             if (!empty($result)) {
               foreach ($result as $row) {
@@ -126,5 +126,22 @@ $result=$conn->query($sql);
   </div>
   <!--body-->
 </body>
-
 </html>
+<script>
+  function loadcont(){
+    var xhttp = new XMLHttpRequest();
+    var txt = document.usrsrch.text.value;
+    xhttp.open("GET","http://localhost/projectbill/usersearcher.php?text=" + txt,true);
+
+    xhttp.onreadystatechange=function(){
+      /*alert(this.status);//test 200
+      alert(this.readyState);//expire time*/
+
+      if((this.status==200)&&(this.readyState==4)){
+        document.getElementById("userbody").innerHTML=this.responseText;
+      }
+    }
+    xhttp.send();//data requesting to server
+
+  }//200 meaning OK // 100 research//300 redirect//500 server site
+</script>
