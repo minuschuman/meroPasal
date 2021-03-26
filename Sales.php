@@ -3,6 +3,7 @@
 
 <head>
   <link rel="stylesheet" href="style/superDashboard.css" type="text/css" />
+  <script src="loder.js"></script>
   <style>
 
 
@@ -11,7 +12,7 @@
   <!--link rel="shortcut icon" href=".ico"-->
   <title>Dashboard</title>
 </head>
-
+<div id="load"></div>
 <body>
   <div class="nav">
     <h1>Billing System</h1>

@@ -57,19 +57,19 @@ $result_LS=$conn->query($sql_LS);
       <dd>red</dd>
     </dl-->
     <ul>
-      <a href="#">
+      <a href="#" class="activeMenuItem">
         <li id="act">Dashboard</li>
       </a>
-      <a href="User.php">
+      <a href="User.php" class="activeMenuItem">
         <li id="menu-user">Users</li>
       </a>
-      <a href="categories.php">
+      <a href="categories.php" class="activeMenuItem">
         <li id="menu">Categories</li>
       </a>
-      <a href="Product.php">
+      <a href="Product.php" class="activeMenuItem">
         <li id="act">Products</li>
       </a>
-      <a href="Sales.php">
+      <a href="Sales.php" class="activeMenuItem">
         <li id="act">Sales</li>
       </a>
       <li id="out-btn"><a href="ses_clear.php">Log Out</a></li>

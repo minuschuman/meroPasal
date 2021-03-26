@@ -12,6 +12,7 @@ $result=$conn->query($sql);
 
 <head>
   <link rel="stylesheet" href="style/superDashboard.css" type="text/css" />
+  <script src="loder.js"></script>
   <style>
 
 
@@ -20,10 +21,10 @@ $result=$conn->query($sql);
   <!--link rel="shortcut icon" href=".ico"-->
   <title>Product | MeroPasal</title>
 </head>
-
+<div id="load"></div>
 <body>
   <div class="nav">
-    <h1>Billing System</h1>
+    <h1>MeroPasal</h1>
     <ul>
       <a href="superDashboard.php">
         <li id="act">Dashboard</li>
@@ -44,9 +45,9 @@ $result=$conn->query($sql);
     </ul>
   </div>
   <div class="body">
+    <h1 id="p-title">Product</h1>
+    <hr>
     <div id="Product">
-      <h1>Product</h1>
-      <hr>
       <div class="addprod">
         <a href="addprod.php"><button class="add-btn">+ Add New</button></a>
       </div>
