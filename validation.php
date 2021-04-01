@@ -34,7 +34,7 @@ if ($result && mysqli_num_rows($result) == 1) {
 } else {?>
   <script>
 		alert('Invalid User or Password...');
-		window.location='index.php';
+    window.location='index.php';
 	</script>
 <?php }
 
