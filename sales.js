@@ -138,18 +138,18 @@ $('div.mydiv').on("change", 'select[name^="select_services"]', function(event) {
 });
 /**************************************************************/
 function changeme(a) {
-  if (a == 1) {
+  if (a == 1) {//old memeber
     document.getElementById('prag1').innerHTML = `
-<div class="form-group row col-md-6" id="customer_id">
+<div id="customer_id">
 <label class="col-sm-3 control-label">Customer id</label>
 <input type="number" name="customer_id" class="form-control" required>
 <input type="hidden" name="customer_name" class="form-control" value="">
 
 </div>
 `;
-  } else {
+} else {//new member
     document.getElementById('prag1').innerHTML = `
-<div class="form-group row col-md-6">
+<div id="customer_name">
 <label class="col-sm-3 control-label">Customer Name</label>
 <input type="text" name="customer_name" class="form-control" required>
 
