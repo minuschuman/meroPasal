@@ -6,13 +6,16 @@ if (isset($_POST['btn_save'])) {
     extract($_POST);
     //echo '<script type="text/javascript">alert("' .  $customer_id ." ".$customer_name. '"); </script>';
     $build_date=date('Y-m-d h:i:sa');
-    $sql_insert ="INSERT INTO `sales`(`date`, `f_price`, `remark`) VALUES ('$build_date','$subtotal','$remark')";
+    $sql_insert ="INSERT INTO `sales`(`date`, `f_price`, `remark`) VALUES ('$build_date','$subtotal','$remark')";//final sales report
     $res_insert = $conn->query($sql_insert);
-    $last_billing_id =  mysqli_insert_id($conn);
-    $billingid = $last_billing_id;
+    $last_sales_id =  mysqli_insert_id($conn);//increment from 1 by last data of column with AUTO INCREMENT
+    $sales_id = $last_sales_id;
+
+/*****************************************************************************************/
     $service = count($_POST['select_services']);
+    echo '<script type="text/javascript">alert("' ."no of selection = $service".'");</script>';
     for ($i=0;$i<$service;$i++) {
-        $sql_service = "INSERT into sales_product(`sales_id`,`prod_id`, `qty`, `unit_price`, `total`)values('$billingid','$select_services[$i]','$quantity[$i]','$unit_price[$i]','$total[$i]')";
+        $sql_service = "INSERT into prod_sales(`sales_id`,`prod_id`, `qty`, `t_price`)values('$sales_id','$select_services[$i]','$quantity[$i]','$total[$i]')";
         //echo '<script type="text/javascript">alert("' .$select_services[$i].'");</script>';
         $conn->query($sql_service);
     }
@@ -22,10 +25,11 @@ if (isset($_POST['btn_save'])) {
       $result_ctmr=$conn->query($sql_ctmr);
       $sql_main="SELECT * from `customer` where `cname`='$customer_name' AND  `reg_date`='$build_date'";
       $result_main=$conn->query($sql_main);
-      echo '<script type="text/javascript">alert("' ."$build_date".'");</script>';
+      //echo '<script type="text/javascript">alert("' ."$build_date".'");</script>';
       if ($result_main->num_rows > 0) {
         while($row = $result_main->fetch_assoc()) {
           echo '<script type="text/javascript">alert("'.$row['csid'].'");</script>';
+          $customer_id=$row['csid'];
         }
       }
     }
@@ -42,11 +46,10 @@ if (isset($_POST['btn_save'])) {
       }
     }
 /********************************************************************************************************/
-?>
-<script type="text/javascript">
-  //window.location = "sales.php";
-</script>
-<?php
+  $sql_ctmr_sales="INSERT INTO `ctmr_sales`(`cid`, `sales_id`) VALUES ($customer_id,$sales_id)";
+  $conn->query($sql_ctmr_sales);
+/*************************************************************************************************************/
+
 }
 ?>
 <!DOCTYPE html>
@@ -90,7 +93,7 @@ if (isset($_POST['btn_save'])) {
     </ul>
   </div>
   <div class="body">
-    <form class="form-valide" method="POST" name="userform" enctype="multipart/form-data">
+    <form class="form-valide" method="POST" action="" name="userform" enctype="multipart/form-data">
       <div class="row">
         <div class="form-group row col-md-6">
           <label class="col-sm-3 control-label">Billed Date:</label>
@@ -143,7 +146,7 @@ if (isset($_POST['btn_save'])) {
           </div>
 
           <div class="col-sm-2">
-            <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
+            <button class="btn btn-success add-more" type="button"></i> Add</button>
           </div>
         </div>
 
@@ -191,7 +194,7 @@ if (isset($_POST['btn_save'])) {
           <input type="text" class="form-control total" class="total" name="total[]" placeholder="Total" readonly="">
         </div>
         <div class="col-sm-2">
-          <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+          <button class="btn btn-danger remove" type="button">Remove</button>
         </div>
       </div>
     </div>
