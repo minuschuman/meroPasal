@@ -117,9 +117,9 @@
             <tr>
               <td><?php echo $row_LS['id']; ?></td>
               <td>
-                <a href="editsales.php?id=<?php echo $row6['id']; ?>">
+                <!--a href="editsales.php?id=<?php echo $row6['id']; ?>"-->
                   <?php echo $row_LS['name']; ?>
-                </a>
+                <!--/a-->
               </td>
               <td><?php echo $row_LS['date']; ?></td>
               <td><?php echo $row_LS['price']; ?></td>

@@ -3,7 +3,7 @@ include("ses_check.php");
 
 include("dbconnection.php");
 
-$sql= "SELECT * from  products where delete_status='0' ORDER BY id DESC";
+$sql= "SELECT * FROM categories c inner join products p on c.id=p.cat_id where p.delete_status=0 and c.delete_status=0 ORDER BY p.id ASC";
 
 $result=$conn->query($sql);
 ?>
@@ -66,9 +66,9 @@ $result=$conn->query($sql);
         <tbody>
           <?php
           foreach ($result as $row) {
-          $sql="SELECT * from categories where id='".$row['cat_id']." '";
+        /*  $sql="SELECT * from categories where id='".$row['cat_id']." '";
           $result1=$conn->query($sql);
-          $row1=$result1->fetch_assoc();
+          $row1=$result1->fetch_assoc();*/
           ?>
           <tr class="odd gradeX">
             <td><?php echo $row['id']; ?></td>
@@ -78,7 +78,7 @@ $result=$conn->query($sql);
             <td><?php echo $row['sale_price']; ?></td>
             <td><?php echo $row['date']; ?></td>
             <td>
-              <a href="editproduct.php?id=<?php echo $row['id']?>"><input id="edit" type="submit" name="edit" value="Edit" /></a>
+              <a href="editprod.php?id=<?php echo $row['id']?>"><input id="edit" type="submit" name="edit" value="Edit" /></a>
               <a href="deleteproduct.php?id=<?php echo $row['id']?>" onclick="return confirm('Are you sure to delete this record?')">
                 <input id="delete" type="submit" name="Delete" value="Delete"/>
               </a>
