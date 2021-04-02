@@ -7,7 +7,6 @@
 <head>
   <link rel="stylesheet" href="style/superDashboard.css" type="text/css" />
   <script src="jquery-3.5.1.js"></script>
-
   <script src="loder.js"></script>
 
   <style></style>
