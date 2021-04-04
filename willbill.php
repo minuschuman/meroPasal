@@ -18,6 +18,12 @@ if (isset($_POST['btn_save'])) {
     echo '<script type="text/javascript">alert("' ."no of selection = $service".'");</script>';
     for ($i=0;$i<$service;$i++) {
         $sql_service = "INSERT into prod_sales(`sales_id`,`prod_id`, `qty`, `t_price`)values('$sales_id','$select_services[$i]','$quantity[$i]','$total[$i]')";
+
+
+        $sql_cng="UPDATE `products` SET `quantity`= quantity-$quantity[$i] WHERE `id` =$select_services[$i] ";
+        $result_cng=$conn->query($sql_cng);
+
+        
         //echo '<script type="text/javascript">alert("' .$select_services[$i].'");</script>';
         $conn->query($sql_service);
     }
