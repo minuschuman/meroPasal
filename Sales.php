@@ -7,12 +7,16 @@ include("dbconnection.php");
 <head>
   <link rel="stylesheet" href="style/superDashboard.css" type="text/css" />
   <script src="loder.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+  <!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+  <script src="jquery-3.5.1.js"></script>
+
   <style>
     .hide {
       display: none;
     }
     .body{
-      background-color: red;
+
     }
 
   </style>
@@ -43,9 +47,9 @@ include("dbconnection.php");
     </ul>
   </div>
   <div class="body">
-    <form class="form-valide" method="POST" action="willbill.php" name="userform" enctype="multipart/form-data">
-      <div class="row">
-        <div class="form-group row col-md-6">
+    <form class="form-valide" method="POST" action="willbill.php" name="userform">
+      <div class="">
+        <div class="form-group  col-md-6">
           <label class=" control-label">Billed Date:</label>
           <input type="date" name="build_date" class="form-control datepicker" value="<?=date('Y-m-d')?>" data-provide="datepicker">
         </div>
@@ -57,7 +61,7 @@ include("dbconnection.php");
         <div id="prag1" ></div>
         <!------------------------------------------------------------------------->
       </div>
-      <div class="form-group row">
+      <div class="form-group ">
         <div class="">
             Product
         </div>
@@ -72,7 +76,7 @@ include("dbconnection.php");
         </div>
       </div>
       <div class="mydiv">
-        <div class="form-group row control-group after-add-more subdiv">
+        <div class="form-group  control-group after-add-more subdiv">
           <div class="">
             <select name="select_services[]" class="form-control select_services" required>
               <option value="" selected="true" disabled="disabled">--SelectProduct--</option>
@@ -103,13 +107,13 @@ include("dbconnection.php");
       </div>
       <!-- mydiv -->
 
-      <div class="form-group row">
+      <div class="form-group ">
         <label class=" control-label">Total</label>
         <div class="">
           <input type="text" name="subtotal" id="subtotal" class="form-control" placeholder="Subtotal" readonly="">
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group ">
         <label class=" control-label">Remark</label>
         <div class="">
           <input type="text" name="remark" id="remark" class="form-control" placeholder="Remark">
@@ -118,7 +122,7 @@ include("dbconnection.php");
       <button type="submit" name="btn_save" class="btn btn-primary btn-flat m-b-30 m-t-30">Submit</button>
     </form>
     <div class="copy hide">
-      <div class="form-group control-group row subdiv">
+      <div class="form-group control-group  subdiv">
 
         <div class="">
             <select name="select_services[]" class="form-control select_services">
@@ -150,8 +154,5 @@ include("dbconnection.php");
     </div>
 </div>
 </body>
-</html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
-<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
-<script src="jquery-3.5.1.js"></script>
 <script src="sales.js"></script>
+</html>

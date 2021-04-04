@@ -42,6 +42,7 @@ if (isset($_POST['btn_save'])) {
         while($row = $result_main->fetch_assoc()) {
           $subtotal=$row['t_buy']+$subtotal;
           //echo '<script type="text/javascript">alert("'.$row['cname'] ." ".$subtotal.'");</script>';
+          $customer_name=$row['cname'];
           $sql_ctmr="UPDATE `customer` SET `t_buy`=$subtotal WHERE `csid` = $customer_id ";
           $result_ctmr=$conn->query($sql_ctmr);
         }
@@ -51,7 +52,7 @@ if (isset($_POST['btn_save'])) {
   $sql_ctmr_sales="INSERT INTO `ctmr_sales`(`cid`, `sales_id`) VALUES ($customer_id,$sales_id)";
   $conn->query($sql_ctmr_sales);
 /*************************************************************************************************************/
-  header('location:bill.php');
+  header('location:bill.php?csid='.$customer_id.'&cname='.$customer_name.'&sales_id='.$sales_id);
 }else {
   header('location:sales.php');
 }

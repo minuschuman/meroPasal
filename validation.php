@@ -19,6 +19,9 @@ if ($result && mysqli_num_rows($result) == 1) {
       $_SESSION['id']= $row['id'];
       $_SESSION['username']=$row['username'];
       $_SESSION['password']=$row['password'];
+      $_SESSION['name']=$row['name'];
+
+
 
       $today = date("Y-m-d h:i:sa");
 
