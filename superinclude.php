@@ -27,8 +27,11 @@ $sql_N="SELECT p.name, COUNT(s.prod_id) AS totalSold, SUM(s.qty) AS totalQty FRO
 $result_N=$conn->query($sql_N);
 /**************************/
 /*$sql_LS="SELECT s.id,s.qty,s.price,s.date,p.name FROM sales s right JOIN products p ON p.id = s.prod_id where s.delete_status=0 GROUP BY s.id DESC LIMIT 5 ";*/
-$sql_LS="SELECT s.id as id,ps.qty,ps.t_price as price,s.date as date,p.name as name  from sales s, prod_sales ps, products p where s.id=ps.sales_id and ps.prod_id=p.id and s.delete_status=0 ORDER BY s.date DESC LIMIT 5";
+$sql_LS="SELECT s.id as id, s.date as date,c.cname as name,s.f_price as price  from sales s, ctmr_sales cs, customer c where s.id=cs.sales_id and cs.cid=c.csid and s.delete_status=0 ORDER BY s.date DESC LIMIT 5";
 $result_LS=$conn->query($sql_LS);
+
+
+
 /*SELECT s.id,ps.qty as s.qty,ps.t_price as s.price,s.date,p.name  from sales s, prod_sales ps, products p where s.id=ps.sales_id and ps.prod_id=p.id
 /************IF require recently added******************
 $sql_LS="SELECT p.id,p.name,p.sale_price,c.name AS categorie FROM products p LEFT JOIN categories c ON c.id = p.cat_id where p.delete_status=0 ORDER BY c.id DESC LIMIT 3";
