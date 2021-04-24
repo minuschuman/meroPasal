@@ -14,47 +14,46 @@ $result=$conn->query($sql);
   <link rel="stylesheet" href="style/superDashboard.css" type="text/css" />
   <script src="loder.js"></script>
   <style>
+  .newbock{
+    display: inline-block;
+  }
+  #prodsrch{
+    width: 80%;
+    margin: auto 10%;
+    height: 50px;
+    padding: 5px;
+  }
+  .size-mg{
+    height: 40px;
+  }
 
-
-
+  .srchtxt{
+    margin-left: 75%;
+  }
+  #prodsrch input{
+    height: 45px;
+    text-align: center;
+  }
   </style>
   <!--link rel="shortcut icon" href=".ico"-->
   <title>Product | MeroPasal</title>
 </head>
 <div id="load"></div>
 <body>
-  <div class="nav">
-    <h1>MeroPasal</h1>
-    <ul>
-      <a href="superDashboard.php">
-        <li id="act">Dashboard</li>
-      </a>
-      <a href="User.php">
-        <li id="menu-user">Users</li>
-      </a>
-      <a href="categories.php">
-        <li id="menu">Categories</li>
-      </a>
-      <a href="Product.php">
-        <li id="act">Products</li>
-      </a>
-      <a href="Sales.php">
-        <li id="act">Sales</li>
-      </a>
-      <li id="out-btn"><a href="#">Log Out</a></li>
-    </ul>
-  </div>
+  <?php require("menu.php"); ?>
+  <h1 id="p-title">Product</h1>
   <div class="body">
-    <h1 id="p-title">Product</h1>
-    <hr>
     <div id="Product">
       <div class="addprod">
-        <a href="addprod.php"><button class="add-btn">+ Add New</button></a>
+        <form method="GET" name="prodsrch" id="prodsrch">
+          <a href="addprod.php" class="newbock"><button type="button" class="add-btn size-mg">+ Add New</button></a>
+          <input type="text" class="size-mg srchtxt" name="text" placeholder="Name Only" onkeyup="loadcont(this.value);">
+        </form>
       </div>
       <table class="table" border='1' cellpadding='0' cellspacing='0'>
         <thead>
           <tr>
-            <th>Id</th>
+            <th>SN</th>
             <th>Product Name</th>
             <th>Instock</th>
             <th>Buying Prize</th>
@@ -63,15 +62,15 @@ $result=$conn->query($sql);
             <th>Action</th>
           </tr>
         </thead>
+        <tbody id="prodbody"></tbody>
         <tbody>
           <?php
+          $i=0;
           foreach ($result as $row) {
-        /*  $sql="SELECT * from categories where id='".$row['cat_id']." '";
-          $result1=$conn->query($sql);
-          $row1=$result1->fetch_assoc();*/
+            $i++;
           ?>
           <tr class="odd gradeX">
-            <td><?php echo $row['id']; ?></td>
+            <td><?php echo $i; ?></td>
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['quantity']; ?></td>
             <td><?php echo $row['buy_price']; ?></td>
@@ -79,7 +78,7 @@ $result=$conn->query($sql);
             <td><?php echo $row['date']; ?></td>
             <td>
               <a href="editprod.php?id=<?php echo $row['id']?>"><input id="edit" type="submit" name="edit" value="Edit" /></a>
-              <a href="deleteproduct.php?id=<?php echo $row['id']?>" onclick="return confirm('Are you sure to delete this record?')">
+              <a href="delprod.php?id=<?php echo $row['id']?>" onclick="return confirm('Are you sure to delete this record?')">
                 <input id="delete" type="submit" name="Delete" value="Delete"/>
               </a>
             </td>
@@ -94,3 +93,16 @@ $result=$conn->query($sql);
 </body>
 
 </html>
+<script>
+  function loadcont(){
+    var xhttp = new XMLHttpRequest();
+    var txt = document.prodsrch.text.value;
+    xhttp.open("GET","prodsearcher.php?text=" + txt,true);
+    xhttp.onreadystatechange=function(){
+      if((this.status==200)&&(this.readyState==4)){
+        document.getElementById("prodbody").innerHTML=this.responseText;
+      }
+    }
+    xhttp.send();
+  }
+</script>

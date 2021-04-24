@@ -1,7 +1,7 @@
 <?php
 include("dbconnection.php");
 
-$today = date("Y-m-d h:i:sa");
+$today = date("Y-m-d H:i:s");
 echo "Current date and time is ".$today;
 
 $sql="INSERT INTO products(name, quantity, buy_price, sale_price, cat_id, date)

@@ -13,12 +13,6 @@ if($_REQUEST['text']!=null){
       <tr>
         <td><?php echo $row['id']; ?></td>
         <td><?php echo $row['name']; ?></td>
-        <!-- <td><?php //if ($row['status']==1) {
-            //   echo "Active";
-            // } else {
-            //     echo "Deactive";
-            //   } ?>
-        </td> -->
         <td>
           <a href="edituser.php?id=<?php echo $row['id']?>">
             <input id="edit" type="submit" name="edit" value="Edit" class="btn btn-success" />
@@ -28,7 +22,11 @@ if($_REQUEST['text']!=null){
             <input id="delete" type="submit" name="delete" value="Delete" class="btn btn-danger" />
           </a>
         </td>
-      </tr><?php
+      </tr>
+      <tr>
+        <td></td><td></td><td></td>
+      </tr>
+      <?php
     }
   }else{
     echo"<h3>can't find</h3>";

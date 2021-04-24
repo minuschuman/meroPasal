@@ -10,32 +10,34 @@ $result=$conn->query($sql)->fetch_assoc();
 <html>
 <head>
   <link rel="stylesheet" href="style/superDashboard.css" type="text/css" />
-  <style>
-
-
-  </style>
-  <!--link rel="shortcut icon" href=".ico"-->
+  <link rel="stylesheet" href="style/user.css" type="text/css"/>
+  <script src="loder.js"></script>
   <title>Users | MeroPasal</title>
+  <style media="screen">
+    .form-lb{
+      display: block;
+      margin-left: 5% ;
+      margin-top: 2vh;
+      font-size: 18px;
+    }
+    .form-control{
+      margin-top: 0;
+    }
+  </style>
 </head>
+<div id="load"></div>
 <body>
-  <div class="nav">
-    <h1 id="myName">Mero Pasal</h1>
-  </div>
+  <?php require("menu.php"); ?>
+  <h1 id="p-title">Edit User</h1>
   <div class="body">
-    <h1 id="p-title">Users</h1>
-    <hr>
+    <br>
+    <div class="form-container">
       <form method="POST" action="useredited.php?id=<?php echo $_GET['id'];?>">
-        <div id="page-wrapper">
-          <div class="container-fluid">
-            <h2> Edit User</h2>
-            <div class="form-group">
-              <label>Name</label><br>
+              <label class="form-lb">Name</label>
               <input class="form-control" name="name" value="<?php echo $result['name']?>" required>
-            </div>
-            <div class="col-lg-6">
-              <label>User Name</label><br>
+              <label class="form-lb">User Name</label>
               <input class="form-control" name="username" value="<?php echo $result['username']?>" required>
-            </div>
+
             <div class="form-group">
               <!--label for="user_level">Select User Role</label><br>
               <select name="user_level" required class="form-control">
@@ -44,18 +46,14 @@ $result=$conn->query($sql)->fetch_assoc();
                 <?php } */?>
               </select-->
             </div><!--form_group-->
-          </div>
-          <label>Status</label>
           <div class="radio">
-            <label>
+            <strong>Status</strong>
               <input type="radio" name="status" value="1" <?php if($result['status']=='1'){echo "checked";}?>>Active
-            </label>
-            <label>
               <input type="radio" name="status" value="0" <?php if($result['status']=='0'){echo "checked";}?>>Deactive
-            </label>
           </div>
-        </div>
-        <button type="submit" class="btn btn-success" name="btn"> Submit</button>
+        <center>
+          <button type="submit" class="btn btn-success" name="btn">Submit</button>
+        </center>
       </form>
     </div>
     <!--UserEdit-->

@@ -14,47 +14,46 @@ $result=$conn->query($sql);
   <link rel="stylesheet" href="style/superDashboard.css" type="text/css" />
   <script src="loder.js"></script>
   <style>
+  .newbock{
+    display: inline-block;
+  }
+  #catsrch{
+    width: 80%;
+    margin: auto 10%;
+    height: 50px;
+    padding: 5px;
+  }
+  .size-mg{
+    height: 40px;
+  }
 
-
-
+  .srchtxt{
+    margin-left: 75%;
+  }
+  #catsrch input{
+    height: 45px;
+    text-align: center;
+  }
+  a:link{
+    text-decoration:none;
+  }
   </style>
   <!--link rel="shortcut icon" href=".ico"-->
   <title>Categories | MeroPasal</title>
 </head>
 <div id="load"></div>
 <body>
-  <div class="nav">
-    <h1>MeroPasal</h1>
-    <ul>
-      <a href="superDashboard.php">
-        <li id="act">Dashboard</li>
-      </a>
-      <a href="User.php">
-        <li id="menu-user">Users</li>
-      </a>
-      <a href="#">
-        <li id="menu">Categories</li>
-      </a>
-      <a href="Product.php">
-        <li id="act">Products</li>
-      </a>
-      <a href="Sales.php">
-        <li id="act">Sales</li>
-      </a>
-      <a href="ses_clear.php" onclick="return confirm('Are you sure you want to logout?')"><li id="out-btn">Log Out</li></a>
-    </ul>
-  </div>
+  <?php require("menu.php"); ?>
+  <h1 id="p-title">Categories</h1>
   <div class="body">
-    <h1 id="p-title">Categories</h1>
-    <hr>
     <div id="Categories">
       <div class="adduser">
-        <a href="addcat.php"><button class="add-btn">+ Add New</button></a>
         <form method="GET" name="catsrch" id="catsrch">
-          <input type="text" name="text" placeholder="Name Only" onkeyup="loadcont(this.value);">
+          <a href="addcat.php" class="newbock "><button type="button" class="add-btn size-mg">+ Add New</button></a>
+          <input type="text" class="size-mg srchtxt" name="text" placeholder="Name Only" onkeyup="loadcont(this.value);">
         </form>
       </div>
-      <table border='1' cellpadding='0' cellspacing='0' class="table">
+      <table cellpadding='0' cellspacing='0' class="table">
         <thead>
           <tr>
             <th>Id</th>
@@ -62,7 +61,8 @@ $result=$conn->query($sql);
             <th>Action</th>
           </tr>
         </thead>
-        <tbody id="catbody">
+        <tbody id="catbody"></tbody>
+        <tbody>
           <?php foreach ($result as $row) {  ?>
           <tr>
             <td><?php echo $row['id']; ?></td>

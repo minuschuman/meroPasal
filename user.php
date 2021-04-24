@@ -4,7 +4,7 @@ include("ses_check.php");
 include("dbconnection.php");
 
 /***********************************/
-$sql= "SELECT id, name, username, user_level, status, last_login FROM users where delete_status='0' ORDER BY name ASC";
+$sql= "SELECT id, name, username, user_level, status, last_login FROM users where delete_status='0' ORDER BY id ASC";
 $result=$conn->query($sql);
 
 ?>
@@ -15,62 +15,44 @@ $result=$conn->query($sql);
   <link rel="stylesheet" href="style/superDashboard.css" type="text/css" />
   <script src="loder.js"></script>
   <style>
-    .adduser button{
-      border: transparent;
-      height: 45px;
-      border-radius:12px;
-      float: left;
-      margin-left: 5%;
-    }
-    #usrsrch{
+    .newbock{
       display: inline-block;
-      float: right;
-      margin-right: 5%;
+    }
+
+    #usrsrch{
+      width: 80%;
+      margin: auto 10%;
+      height: 50px;
+      padding: 5px;
+    }
+
+    .size-mg{
+      height: 40px;
+    }
+
+    .srchtxt{
+      margin-left: 75%;
     }
     #usrsrch input{
       height: 45px;
-      border-radius:12px;
+      text-align: center;
+    }
+    a:link{
+      text-decoration:none;
     }
   </style>
-  <!--link rel="shortcut icon" href=".ico"-->
   <title>Users | MeroPasal</title>
 </head>
 <div id="load"></div>
 <body>
-  <div class="nav">
-    <h1 id="myName">MeroPasal</h1>
-    <ul>
-      <a href="superDashboard.php">
-        <li id="act">Dashboard</li>
-      </a>
-      <a href="#">
-        <li id="menu-user">Users</li>
-      </a>
-      <a href="categories.php">
-        <li id="menu">Categories</li>
-      </a>
-      <a href="Product.php">
-        <li id="act">Products</li>
-      </a>
-      <a href="Sales.php">
-        <li id="act">Sales</li>
-      </a>
-      <a href="ses_clear.php" onclick="return confirm('Are you sure you want to logout?')"><li id="out-btn">Log Out</li></a>
-    </ul>
-  </div>
+  <?php require("menu.php"); ?>
+  <h1 id="p-title">Users</h1>
   <div class="body">
-    <h1 id="p-title">Users</h1>
-    <hr>
-    <div class="newdi" style="background-color:red;">
     <div class="adduser">
-      <a href="adduser.php"><button class="add-btn">+ Add New</button></a>
-    </div>
-    <div id="">
       <form method="GET" name="usrsrch" id="usrsrch">
-        <input type="text" name="text" placeholder="Name Only" onkeyup="loadcont(this.value);">
-        <!--input type="button" onclick="loadcont();" value="search"-->
+        <a href="adduser.php" class="newbock"><button type="button" class="add-btn size-mg">+ Add New</button></a>
+        <input type="text" class="size-mg srchtxt" name="text" placeholder="Name Only" onkeyup="loadcont(this.value);">
       </form>
-    </div>
     </div>
     <div id="User">
       <table class="table" cellpadding='0' cellspacing='0'>
@@ -84,7 +66,8 @@ $result=$conn->query($sql);
             <th>Action</th>
           </tr>
         </thead>
-        <tbody id="userbody">
+        <tbody id="userbody"></tbody>
+        <tbody>
           <?php
             if (!empty($result)) {
               foreach ($result as $row) {
@@ -112,7 +95,7 @@ $result=$conn->query($sql);
           </tr>
           <?php }
           }?>
-          </tbody-->
+          </tbody>
       </table>
     </div>
     <!--User-->

@@ -8,7 +8,8 @@ if($_REQUEST['text']!=null){
   if ($result->num_rows > 0) {
       $arr_users = $result->fetch_all(MYSQLI_ASSOC);
   }
-  if(!empty($arr_users)) {
+  if(!empty($arr_users)) { ?>
+    <?php
     foreach($arr_users as $row) {?>
       <tr>
         <td><?php echo $row['id']; ?></td>
@@ -30,7 +31,11 @@ if($_REQUEST['text']!=null){
             <input id="delete" type="submit" name="delete" value="Delete" class="btn btn-danger" />
           </a>
         </td>
-      </tr><?php
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <?php
     }
   }else{
     echo"<h3>can't find</h3>";

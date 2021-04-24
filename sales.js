@@ -1,6 +1,6 @@
 $(".add-more").on('click', function() {
   var html = $(".copy").html();
-  $(".after-add-more").after(html);
+  $(".after-add-more").before(html);
 });
 $("body").on("click", ".remove", function() {
   $(this).parents(".control-group").remove();
@@ -116,11 +116,20 @@ $('div.mydiv').on("change", 'select[name^="select_services"]', function(event) {
       drop_services: drop_services
     },
     success: function(data) {
-      currentRow.find('input[name^="quantity"]').val(1);
+      currentRow.find('input[name^="quantity"]').val();
       currentRow.find('input[name^="unit_price"]').val(data);
       var quantity = currentRow.find('input[name^="quantity"]').val();
       var unitprice = currentRow.find('input[name^="unit_price"]').val();
-      var total = parseInt(quantity) * parseInt(unitprice);
+      /******************************************************************/
+      "<?php ?>";
+      /**************************************************************/
+      if(quantity==""){
+        var total=0;
+      }
+      else {
+        var total = parseInt(quantity) * parseInt(unitprice);
+      }
+      /*********************************************************/
       currentRow.find('input[name^="total"]').val(total);
       var total = +currentRow.find('input[name^="total"]').val(total);
       $('#subtotal').val(total);

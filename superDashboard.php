@@ -16,32 +16,7 @@
 
 <div id="load"></div>
 <body>
-  <div class="nav">
-    <h1 id="myName">MeroPasal</h1>
-    <!--dl>
-      <dt>fire</dt>
-      <dd>ylo</dd>
-      <dd>red</dd>
-    </dl-->
-    <ul>
-      <a href="#" class="activeMenuItem">
-        <li id="act">Dashboard</li>
-      </a>
-      <a href="User.php" class="activeMenuItem">
-        <li id="menu-user">Users</li>
-      </a>
-      <a href="categories.php" class="activeMenuItem">
-        <li id="menu">Categories</li>
-      </a>
-      <a href="Product.php" class="activeMenuItem">
-        <li id="act">Products</li>
-      </a>
-      <a href="Sales.php" class="activeMenuItem">
-        <li id="act">Sales</li>
-      </a>
-      <li id="out-btn"><a href="ses_clear.php" onclick="return confirm('Are you sure you want to logout?')">Log Out</a></li>
-    </ul>
-  </div>
+  <?php require("menu.php"); ?>
   <div class="body">
     <h1 id="p-title">Dashboard</h1>
     <div id="body" class="Dashboard">
@@ -103,7 +78,7 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Product Name</th>
+              <th>Customer Name</th>
               <th>Date</th>
               <th>Total Sale</th>
             </tr>

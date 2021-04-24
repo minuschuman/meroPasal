@@ -180,6 +180,7 @@ include 'ses_check.php';
 		WinPrint.document.write(prtContent.innerHTML);
 		WinPrint.document.close();
 		WinPrint.focus();
+		window.location='sales.php';
 		//WinPrint.print();
 	//	WinPrint.close();
 }
