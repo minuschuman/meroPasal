@@ -89,7 +89,7 @@ $result=$conn->query($sql);
   function loadcont(){
     var xhttp = new XMLHttpRequest();
     var txt = document.catsrch.text.value;
-    xhttp.open("GET","http://localhost/projectbill/catsearcher.php?text=" + txt,true);
+    xhttp.open("GET","catsearcher.php?text=" + txt,true);
     xhttp.onreadystatechange=function(){
       if((this.status==200)&&(this.readyState==4)){
         document.getElementById("catbody").innerHTML=this.responseText;

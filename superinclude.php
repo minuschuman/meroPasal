@@ -28,6 +28,7 @@ $result_N=$conn->query($sql_N);
 /**************************/
 /*$sql_LS="SELECT s.id,s.qty,s.price,s.date,p.name FROM sales s right JOIN products p ON p.id = s.prod_id where s.delete_status=0 GROUP BY s.id DESC LIMIT 5 ";*/
 $sql_LS="SELECT s.id as id, s.date as date,c.cname as name,s.f_price as price  from sales s, ctmr_sales cs, customer c where s.id=cs.sales_id and cs.cid=c.csid and s.delete_status=0 ORDER BY s.date DESC LIMIT 5";
+// STR_TO_DATE(login_time, '%l:%i %p')
 $result_LS=$conn->query($sql_LS);
 
 

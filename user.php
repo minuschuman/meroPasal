@@ -24,18 +24,12 @@ $result=$conn->query($sql);
     }
     #usrsrch{
       display: inline-block;
-      float: right;;
-      margin-right: 5%
+      float: right;
+      margin-right: 5%;
     }
     #usrsrch input{
-      //border: 1px;
       height: 45px;
       border-radius:12px;
-      //background-color: deeppink;
-    }
-    .adduser{
-      //margin-bottom: 1em;
-      //background-color: red;
     }
   </style>
   <!--link rel="shortcut icon" href=".ico"-->
@@ -131,7 +125,7 @@ $result=$conn->query($sql);
   function loadcont(){
     var xhttp = new XMLHttpRequest();
     var txt = document.usrsrch.text.value;
-    xhttp.open("GET","http://localhost/projectbill/usersearcher.php?text=" + txt,true);
+    xhttp.open("GET","usersearcher.php?text=" + txt,true);
     xhttp.onreadystatechange=function(){
       if((this.status==200)&&(this.readyState==4)){
         document.getElementById("userbody").innerHTML=this.responseText;

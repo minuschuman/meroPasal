@@ -7,7 +7,7 @@ if (isset($_POST['btn_save'])) {
     date_default_timezone_set('Asia/Kathmandu');
     extract($_POST);
     //echo '<script type="text/javascript">alert("' .  $customer_id ." ".$customer_name. '"); </script>';
-    $build_date=date('Y-m-d h:i:sa');
+    $build_date=date('Y-m-d H:i:s');
     $sql_insert ="INSERT INTO `sales`(`date`, `f_price`, `remark`) VALUES ('$build_date','$subtotal','$remark')";//final sales report
     $res_insert = $conn->query($sql_insert);
     $last_sales_id =  mysqli_insert_id($conn);//increment from 1 by last data of column with AUTO INCREMENT
@@ -23,7 +23,7 @@ if (isset($_POST['btn_save'])) {
         $sql_cng="UPDATE `products` SET `quantity`= quantity-$quantity[$i] WHERE `id` =$select_services[$i] ";
         $result_cng=$conn->query($sql_cng);
 
-        
+
         //echo '<script type="text/javascript">alert("' .$select_services[$i].'");</script>';
         $conn->query($sql_service);
     }

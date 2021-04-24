@@ -15,9 +15,7 @@ include("dbconnection.php");
     .hide {
       display: none;
     }
-    .body{
-
-    }
+   
 
   </style>
   <!--link rel="shortcut icon" href=".ico"-->

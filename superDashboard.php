@@ -44,7 +44,6 @@
   </div>
   <div class="body">
     <h1 id="p-title">Dashboard</h1>
-    <hr>
     <div id="body" class="Dashboard">
       <div class="panel-set">
         <div class="u-panel">
