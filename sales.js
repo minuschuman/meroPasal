@@ -55,7 +55,7 @@ $(document).ready(function() {
   });
 
 
-  $('form').on("keyup", 'input[name="advanced_amount"]', function(argument) {
+  /*$('form').on("keyup", 'input[name="advanced_amount"]', function(argument) {
     var final_total = $('#final_total').val();
     alert(final_total);
     var advanced_amount = $(this).val();
@@ -69,7 +69,7 @@ $(document).ready(function() {
       var cust_pending = $("#pending_amount").val(cust_amt);
     }
 
-  })
+  })*/
 });
 
 /*
