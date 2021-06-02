@@ -16,7 +16,9 @@
 
 <div id="load"></div>
 <body>
-  <?php require("menu.php"); ?>
+  <?php 
+  $page ='one';
+  require("menu.php"); ?>
   <div class="body">
     <h1 id="p-title">Dashboard</h1>
     <div id="body" class="Dashboard">
