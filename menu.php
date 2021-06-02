@@ -6,7 +6,7 @@
     <dd>red</dd>
   </dl-->
   <ul>
-    <a href="superDashboard.php" class="activeMenuItem">
+    <a href="superDashboard.php" class="activeMenuItem <?php //echo (($page == 'one') ? 'active' : '') ?>">
       <li id="act">Dashboard</li>
     </a>
     <a href="User.php" class="activeMenuItem">
