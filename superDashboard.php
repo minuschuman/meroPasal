@@ -1,5 +1,6 @@
 <?php
   include("superinclude.php");
+  require_once("userlevel.php");
  ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +17,7 @@
 
 <div id="load"></div>
 <body>
-  <?php 
+  <?php
   $page ='one';
   require("menu.php"); ?>
   <div class="body">

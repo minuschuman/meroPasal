@@ -20,7 +20,7 @@ if ($result && mysqli_num_rows($result) == 1) {
       $_SESSION['username']=$row['username'];
       $_SESSION['password']=$row['password'];
       $_SESSION['name']=$row['name'];
-
+      $_SESSION['user']=$row['user_level'];
 
 
       $today = date("Y-m-d h:i:sa");
@@ -28,7 +28,12 @@ if ($result && mysqli_num_rows($result) == 1) {
       $sql1="UPDATE users set last_login='$today' where id='".$_SESSION['id']."'";
       $result=$conn->query($sql1);
 
-      header("location:superDashboard.php");
+      if($_SESSION['user'] == 1) {
+        header("location:superDashboard.php");
+      }
+      else {
+        header("location:Sales.php");
+      }
     }
     else {
       $result=0;

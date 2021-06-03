@@ -1,6 +1,6 @@
 <?php
 include("ses_check.php");
-
+require_once("userlevel.php");
 include("dbconnection.php");
 
 /***********************************/
