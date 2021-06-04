@@ -47,7 +47,7 @@ $result=$conn->query($sql);
   <h1 id="p-title">Categories</h1>
   <div class="body">
     <div id="Categories">
-      <div class="adduser">
+      <div class="adduser addnew">
         <form method="GET" name="catsrch" id="catsrch">
           <a href="addcat.php" class="newbock "><button type="button" class="add-btn size-mg">+ Add New</button></a>
           <input type="text" class="size-mg srchtxt" name="text" placeholder="Name Only" onkeyup="loadcont(this.value);">
