@@ -9,15 +9,3 @@ if(isset($_POST['drop_services'])){
   }
 
 ?>
-
-<?php/*
-include("dbconnection.php";)
-if(isset($_POST['drop_cat'])){
-  $sql_dropcat = "SELECT * FROM categories WHERE id='".$_POST[drop_cat]."'";
-  $res_cat= $conn->query($sql_dropcat);
-  $dropcat = mysqli_fetch_array($res_cat);
-  echo $dropcat['name'];
-  exit;
-}
-*/
-?>
