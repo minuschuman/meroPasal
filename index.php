@@ -3,11 +3,15 @@ session_start();
 if((isset($_SESSION['username']))&&($_SESSION['active']==0)){
 	header("location:superDashboard.php");
 }
-?><html>
+?>
 <head>
   <style>
     body{
       background-color: #dfe3ee;
+			background-image: url("style/index.jpg");
+			background-repeat: no-repeat;
+			background-size: 60%  100vh;
+			background-origin: content-box;
     }
     #caphead{
       width: 30%;
@@ -16,44 +20,43 @@ if((isset($_SESSION['username']))&&($_SESSION['active']==0)){
       margin-top: 10%;
       margin-left: 15%
     }
-    #caphead h1{
-      padding-top: 0;
-      color: #42b72a;
-    }
-    #login{
+    .login{
       float: right;
       display: inline-block;
       width: 25%;
       border: solid 2px;
       border-color: transparent;
       border-radius:12px;
-      margin: 7% 15% auto auto;
+      margin: 5% 6% auto auto;
       padding: 2em  1em;
       font-size: 18px;
       background-color: #fff;
     }
+		.login h1{
+      padding-top: 0;
+			margin-top: 0;
+      color: #42b72a;
+    }
     #login input{
-      width: 90%;
+			width: 100%;
       height: 45px;
       border-radius:12px;
       font-size: 15px;
       margin: 5% auto;
       border-width: 1px;
-      //text-align: center;
       padding-left: 20px;
       outline: 0;
       vertical-align: middle;
     }
 
     .txt{
-      //font-style: italic;
-      //font-weight: bold;
       color: black;
+			text-align: center;
     }
+
 
     input[class=txt]:focus{
       box-shadow: 0 0 0 2px #42b72a;
-      //background-color: red;
     }
 
   </style>
@@ -64,16 +67,16 @@ if((isset($_SESSION['username']))&&($_SESSION['active']==0)){
 </head>
 <body>
   <div id="caphead">
-    <h1>MeroPasal</h1>
-    <p>Store Solution</p>
   </div>
-  <form action="validation.php" boarder="1" class="login" method="POST" id="login">
-  		<!--label>Username</label-->
-  		<input type="text" name="name" class="txt" placeholder="Username"/><br>
-  		<!--label>Password</label-->
-  		<input type="password" name="pass" class="txt" placeholder="Password"><br>
-      <hr style="height:2px;border-width:0;color:gray;background-color:gray;margin:2em auto;">
-  		<input type="submit" value="Log In" id="sbm"/>
-   </form>
+	<div class="login">
+		<h1>MeroPasal</h1>
+	  <form action="validation.php" boarder="1" class="" method="POST" id="login">
+	  		<!--label>Username</label-->
+	  		<input type="text" name="name" class="txt" placeholder="Username"/><br>
+	  		<!--label>Password</label-->
+	  		<input type="password" name="pass" class="txt" placeholder="Password"><br>
+	      <hr style="height:2px;border-width:0;color:gray;background-color:gray;margin:2em auto;">
+	  		<input type="submit" value="Log In" id="sbm" style="width: 75%;"/>
+	   </form>
+	 </div>
 </body>
-</html>
