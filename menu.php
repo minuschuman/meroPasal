@@ -27,7 +27,7 @@ $user = $_SESSION['user'];
     <a href="Sales.php" class="activeMenuItem">
       <li id="act">Sales</li>
     </a>
-    <li id="out-btn"><a href="ses_clear.php" onclick="return confirm('Are you sure you want to logout?')">Log Out</a></li>
+    <a href="ses_clear.php" onclick="return confirm('Are you sure you want to logout?')"><li id="out-btn">Log Out</li></a>
   </ul>
 </div>
 
