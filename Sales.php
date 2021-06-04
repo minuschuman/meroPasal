@@ -2,7 +2,7 @@
 include("ses_check.php");
 include("dbconnection.php");
 
-$sql= "SELECT * from  products where delete_status='0' and quantity!='0' ORDER BY id ASC";
+$sql= "SELECT * from  products where delete_status='0' and quantity>'0' ORDER BY id ASC";
 $result=$conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -147,7 +147,7 @@ $result=$conn->query($sql);
               <option value="" selected="true" disabled="disabled">--SelectProduct--</option>
               <?php
               foreach ($result as $r_service) { ?>
-                <option value="<?php echo $r_service['id'];?>"><?php echo $r_service['name'];?></option>
+                <option value="<?php echo $r_service['id'];?>"><?php echo $r_service['name']." (".$r_service['quantity'].")";?></option>
               <?php } ?>
             </select>
           </div>
@@ -233,7 +233,7 @@ $result=$conn->query($sql);
               <option value="" selected="true" disabled="disabled">--SelectProduct--</option>
               <?php
               foreach ($result as $r_service) { ?>
-                <option value="<?php echo $r_service['id'];?>"><?php echo $r_service['name'];?></option>
+                <option value="<?php echo $r_service['id'];?>"><?php echo $r_service['name']." (".$r_service['quantity'].")";?></option>
               <?php } ?>
             </select>
         </div>
