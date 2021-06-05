@@ -40,8 +40,8 @@
             <h6 id="txt">Product</h6>
           </div>
           <div class="sale panel">
-            <h4 id="num"><?php echo $row_sales['sales_id'];?></h4>
-            <h6 id="txt">Sales</h6>
+            <h4 id="num">Rs. <?php echo $row_sales['day_sale'];?></h4>
+            <h6 id="txt">Total Sales</h6>
           </div>
         </div>
         <!--l-panel-->
