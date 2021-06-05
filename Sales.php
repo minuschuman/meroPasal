@@ -108,7 +108,7 @@ $result=$conn->query($sql);
   <h1 id="p-title">Dashboard</h1>
   <div class="body">
     <div id="sales">
-      <form class="form-valide" method="POST" action="willbill.php" name="userform" target="_blank">
+      <form class="form-valide" method="POST" action="willbill.php" name="userform">
       <div class="">
         <!-- <div class="col-md-6">
           <label class=" control-label">Billed Date:</label>
