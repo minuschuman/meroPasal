@@ -21,6 +21,11 @@ h1#p-title{
     background: url("loading.gif") no-repeat center rgba(255,255,255,.1);
 }/*****************************************/
 
+.nav .active li {
+  background-color: #666;
+  color: white;
+}
+
 .nav h1 {
   color: #42b72a;
 }
