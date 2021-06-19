@@ -72,7 +72,7 @@
           </tbody>
         </table>
       </div>
-      <!--highest-table-->
+      <!-highest-table-->
       <div class="latest-table">
         <table class="table"  cellpadding='0' cellspacing='0'>
           <caption>
@@ -107,6 +107,29 @@
       <!--latest-table-->
     </div>
     <!--Dashboard-->
+    <div id="chartContainer" style="height: 370px; width: 80%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <div id = "yearsale">
+      <table class="table"  cellpadding='0' cellspacing='0'>
+        <caption>
+          <h2>Sales Report of <?= date("Y") ?></h2>
+        </caption>
+        <thead>
+          <tr>
+            <!-- <th>#</th> -->
+            <th>Month</th>
+            <th>Total Sale</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($result_msale as $row_msale){ ?>
+          <tr>
+            <!-- <td><?= "test"?></td> -->
+            <td><?php echo $row_msale['date']; ?></td>
+            <td><?php echo $row_msale['price']; ?></td>
+          </tr>
+        <?php } ?>
+    </div>
   </div>
   <!--body-->
 </body>

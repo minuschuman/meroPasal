@@ -33,7 +33,9 @@ $sql_LS="SELECT s.id as id, s.date as date,c.cname as name,s.f_price as price  f
 $result_LS=$conn->query($sql_LS);
 
 /********************************************/
-
+$date = date("Y");
+$sql_msale ="SELECT SUM(f_price) as price,DATE_FORMAT(date, '%M') as date  from sales WHERE delete_status='0' and DATE_FORMAT(date, '%Y') = $date  group by DATE_FORMAT(date, '%Y-%m')";
+$result_msale=$conn->query($sql_msale);
 
 
 
@@ -42,4 +44,40 @@ $result_LS=$conn->query($sql_LS);
 $sql_LS="SELECT p.id,p.name,p.sale_price,c.name AS categorie FROM products p LEFT JOIN categories c ON c.id = p.cat_id where p.delete_status=0 ORDER BY c.id DESC LIMIT 3";
 $result_LS=$conn->query($sql_LS);
 ****************/
+
+$dataPoints = array();
+$date = date("Y-m-d");
+$date = date("Y-m-d",strtotime("-30 day", strtotime("$date")));
+for($i = 0; $i<30; $i++){
+  $date = date("Y-m-d",strtotime("+1 day", strtotime("$date")));
+  $result_graph =$conn->query("SELECT sum(f_price) as day_sale from sales where delete_status='0' and DATE_FORMAT(date, '%Y-%m-%d') = '$date'");
+  $row_graph=$result_graph->fetch_assoc();
+  // $r_date = DATE_FORMAT(strtotime("$date"), '%m-%d');
+  $one_item = array(
+    "y" => $row_graph['day_sale'],
+    "label" => "$date"
+  );
+      array_push($dataPoints, $one_item);
+}
+
+
 ?>
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	title: {
+		text: "sales over Last 30 Days"
+	},
+	axisY: {
+		title: "Amount"
+	},
+	data: [{
+		type: "line",
+		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+	}]
+});
+chart.render();
+
+}
+</script>
