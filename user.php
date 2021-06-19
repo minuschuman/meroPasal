@@ -46,8 +46,8 @@ $result=$conn->query($sql);
 <div id="load"></div>
 <body>
   <?php require("menu.php"); ?>
-  <h1 id="p-title">Users</h1>
   <div class="body">
+    <h1 id="p-title">Users</h1>
     <div class="adduser">
       <form method="GET" name="usrsrch" id="usrsrch">
         <a href="adduser.php" class="newbock"><button type="button" class="add-btn size-mg">+ Add New</button></a>

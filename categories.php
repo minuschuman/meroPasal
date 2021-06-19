@@ -44,8 +44,8 @@ $result=$conn->query($sql);
 <div id="load"></div>
 <body>
   <?php require("menu.php"); ?>
-  <h1 id="p-title">Categories</h1>
   <div class="body">
+    <h1 id="p-title">Categories</h1>
     <div id="Categories">
       <div class="adduser addnew">
         <form method="GET" name="catsrch" id="catsrch">

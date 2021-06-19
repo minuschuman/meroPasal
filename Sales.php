@@ -105,8 +105,8 @@ $result=$conn->query($sql);
 <body>
   <div id="load"></div>
   <?php require("menu.php"); ?>
-  <h1 id="p-title">Dashboard</h1>
   <div class="body">
+    <h1 id="p-title">Dashboard</h1>
     <div id="sales">
       <form class="form-valide" method="POST" action="willbill.php" name="userform">
       <div class="">
