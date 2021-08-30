@@ -1,5 +1,5 @@
 ErrorDocument 404 /projectbill/404error.php
-#ErorDocument 404 /404error.php
+#ErrorDocument 404 /404error.php
 
 
 RewriteEngine On
