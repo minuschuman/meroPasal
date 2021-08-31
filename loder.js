@@ -22,6 +22,6 @@ if (state == 'interactive') {
            targList[x].style.visibility = "visible";
            }
        }
-    },1000);
+    },500);
 }
 }
