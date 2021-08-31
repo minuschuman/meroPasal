@@ -70,9 +70,9 @@ if((isset($_SESSION['username']))&&($_SESSION['active']==0)){
   </div>
 	<div class="login">
 		<h1>MeroPasal</h1>
-	  <form action="validation.php" boarder="1" class="" method="POST" id="login">
+	  <form action="validation.php" boarder="1" class="" method="POST" id="login" required>
 	  		<!--label>Username</label-->
-	  		<input type="text" name="name" class="txt" placeholder="Username"/><br>
+	  		<input type="text" name="name" class="txt" placeholder="Username" required/><br>
 	  		<!--label>Password</label-->
 	  		<input type="password" name="pass" class="txt" placeholder="Password"><br>
 	      <hr style="height:2px;border-width:0;color:gray;background-color:gray;margin:2em auto;">
