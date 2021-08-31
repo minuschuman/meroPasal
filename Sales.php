@@ -106,7 +106,12 @@ $result=$conn->query($sql);
   <div id="load"></div>
   <?php require("menu.php"); ?>
   <div class="body">
-    <h1 id="p-title">Dashboard</h1>
+    <h1 id="p-title">
+      Dashboard
+      <?php if($_SESSION['user']==1){ ?>
+        Sales
+      <?php }else ?>
+    </h1>
     <div id="sales">
       <form class="form-valide" method="POST" action="willbill.php" name="userform">
       <div class="">
