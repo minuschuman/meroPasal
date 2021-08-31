@@ -1,7 +1,12 @@
 <?php
 session_start();
 if((isset($_SESSION['username']))&&($_SESSION['active']==0)){
-	header("location:superDashboard.php");
+	if ($_SESSION['user']=1){
+		header("location:superDashboard.php");
+	}
+	else {
+		header("location:sales.php");
+	}
 }
 ?>
 <head>
