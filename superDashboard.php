@@ -20,6 +20,7 @@
   <?php
   $page ='one';
   require("menu.php"); ?>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <div class="body">
     <h1 id="p-title">Dashboard</h1>
     <div id="body" class="Dashboard">
@@ -41,14 +42,16 @@
           </div>
           <div class="sale panel">
             <h4 id="num">Rs. <?php echo $row_sales['day_sale'];?></h4>
-            <h6 id="txt">Total Sales</h6>
+            <h6 id="txt">Todays Sales</h6>
           </div>
         </div>
         <!--l-panel-->
       </div>
       <!--panel-set-->
-
-      <!--div class="highest-table">
+      <div id="chartContainer" style="height: 370px; width: 80%;"></div>
+      <!-- Chart -->
+      
+      <div class="highest-table">
         <table class="table" border='1' cellpadding='0' cellspacing='0'>
           <caption>
             <h2>Highest Sold Products</h2>
@@ -72,7 +75,7 @@
           </tbody>
         </table>
       </div>
-      <!-highest-table-->
+      <!--highest-table-->
       <div class="latest-table">
         <table class="table"  cellpadding='0' cellspacing='0'>
           <caption>
@@ -107,8 +110,6 @@
       <!--latest-table-->
     </div>
     <!--Dashboard-->
-    <div id="chartContainer" style="height: 370px; width: 80%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <div id = "yearsale">
       <table class="table"  cellpadding='0' cellspacing='0'>
         <caption>
