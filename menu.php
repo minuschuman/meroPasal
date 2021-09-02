@@ -3,7 +3,7 @@ $name = $_SESSION['name'];
 $user = $_SESSION['user'];
 ?>
 <div class="nav">
-  <h1 id="myName">MeroPasal</h1>
+  <h1 id="myName"><u>MeroPasal</u></h1>
   <!--dl>
     <dt>fire</dt>
     <dd>ylo</dd>
