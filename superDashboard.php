@@ -50,7 +50,7 @@
       <!--panel-set-->
       <div id="chartContainer" style="height: 370px; width: 80%;"></div>
       <!-- Chart -->
-      
+
       <div class="highest-table">
         <table class="table" border='1' cellpadding='0' cellspacing='0'>
           <caption>
@@ -108,31 +108,51 @@
         </table>
       </div>
       <!--latest-table-->
+      <div id = "yearsale">
+        <table class="table"  cellpadding='0' cellspacing='0'>
+          <caption>
+            <h2>Sales Report of <?= date("Y") ?></h2>
+          </caption>
+          <thead>
+            <tr>
+              <!-- <th>#</th> -->
+              <th>Month</th>
+              <th>Total Sale</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php foreach ($result_msale as $row_msale){ ?>
+            <tr>
+              <!-- <td><?= "test"?></td> -->
+              <td><?php echo $row_msale['date']; ?></td>
+              <td><?php echo $row_msale['price']; ?></td>
+            </tr>
+          <?php } ?>
+        </tbody>
+        </table>
+      </div>
+      <style>
+      #rpt-link{
+        text-align: center;
+        margin-bottom: 5vh;
+        margin-top: 3vh;
+      }
+      #rpt-link a{
+        background-color: #42b72a;
+        color:black;
+        padding: 10px;
+      }
+      #rpt-link a:link{
+        text-decoration:none;
+      }
+      </style>
+      <hr style="width:90%; margin:auto; padding-top=0">
+      <div id="rpt-link"><a href="report.php">→ View More</a></div>
     </div>
     <!--Dashboard-->
-    <div id = "yearsale">
-      <table class="table"  cellpadding='0' cellspacing='0'>
-        <caption>
-          <h2>Sales Report of <?= date("Y") ?></h2>
-        </caption>
-        <thead>
-          <tr>
-            <!-- <th>#</th> -->
-            <th>Month</th>
-            <th>Total Sale</th>
-          </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($result_msale as $row_msale){ ?>
-          <tr>
-            <!-- <td><?= "test"?></td> -->
-            <td><?php echo $row_msale['date']; ?></td>
-            <td><?php echo $row_msale['price']; ?></td>
-          </tr>
-        <?php } ?>
-    </div>
   </div>
   <!--body-->
+
 </body>
 
 </html>
