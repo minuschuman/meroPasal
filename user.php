@@ -13,34 +13,8 @@ $result=$conn->query($sql);
 
 <head>
   <link rel="stylesheet" href="style/superDashboard.css" type="text/css" />
+  <link rel="stylesheet" href="style/srchstlr.css">
   <script src="loder.js"></script>
-  <style>
-    .newbock{
-      display: inline-block;
-    }
-
-    #usrsrch{
-      width: 80%;
-      margin: auto 10%;
-      height: 50px;
-      padding: 5px;
-    }
-
-    .size-mg{
-      height: 40px;
-    }
-
-    .srchtxt{
-      margin-left: 75%;
-    }
-    #usrsrch input{
-      height: 45px;
-      text-align: center;
-    }
-    a:link{
-      text-decoration:none;
-    }
-  </style>
   <title>Users | MeroPasal</title>
 </head>
 <div id="load"></div>
