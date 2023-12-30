@@ -1,0 +1,17 @@
+{
+    "name": "minuschuman/meropasal",
+    "description": "This is college project for BCA 'project I'.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Minuschuman\\Meropasal\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "minuschuman",
+            "email": "sthachuman@gmail.com"
+        }
+    ],
+    "require": {}
+}
