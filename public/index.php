@@ -25,7 +25,9 @@ try {
 
     $controllerInstance = new $controllerClass();
 
-    $response = $controllerInstance->$controllerMethod(...array_values($parameters));
+    $parameters = (object) $parameters;
+
+    $response = $controllerInstance->$controllerMethod($parameters);
 
 } catch (\Symfony\Component\Routing\Exception\ResourceNotFoundException $e) {
     $path = $request->getPathInfo();
